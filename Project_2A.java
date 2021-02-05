@@ -141,11 +141,14 @@ public class Project_2A {
 		else
 			return false;
 	}//end is number check
-	
+	/*
+	*Method to check if String s is equal to any of the allowed operators for this project. 
+	*Returns: True if String s is equal to one of the operators, otherwise returns false bvecause String s isnt an operator
+	*/
 	public boolean isOperator(String s) {
-		/**
-		 * FIX ME
-		 */
+		if (s.equals("^" || "*" || "/" || "+" || "-" || ">" || ">=" || "<" || "<=" || "==" || "!=" || "&&" || "||"){
+			return true;
+		}else {return false;}
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
