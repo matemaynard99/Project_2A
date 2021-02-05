@@ -1,3 +1,8 @@
+//Written by
+//Dalton Vining
+//Samuel Maynard
+//Shane Callaway
+
 package Project_2A;
 import java.util.*;
 public class Project_2A {
