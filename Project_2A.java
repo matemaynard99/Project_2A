@@ -1,16 +1,16 @@
 
 //Written by
-	//Dalton Vining
-	//Samuel Maynard
-	//Shane Callaway
-
+//Dalton Vining
+//Samuel Maynard
+//Shane Callaway
 	
 import java.util.*;
+import java.io.*;
 public class Project_2A {
 	static Stack<Integer> nums = new Stack<Integer>();
 	static Stack<String> operators = new Stack<String>();
 		
-		public static int evaluatEquation(String s) {
+		public static int evaluateEquation(String s) {
 			s = s + " ";
 			
 			char[] tokenArray = s.toCharArray();
@@ -145,7 +145,7 @@ public class Project_2A {
 			*/
 		static public int precedence(String operator) {
 			if (operator.equals("^"))                           { return 7; }
-			if (operator.equals("*") || operator.equals("/"))   { return 6; }
+			if (operator.equals("*") || operator.equals("/") || operator.equals("%")) { return 6; }
 			if (operator.equals("+") || operator.equals("-"))   { return 5; }
 			if (operator.equals(">") || operator.equals(">="))  { return 4; }
 			if (operator.equals("<") || operator.equals("<="))  { return 4; }
@@ -172,6 +172,9 @@ public class Project_2A {
 		        
 		    case "/":
 		        return(left / right);
+		        
+		    case "%":
+		    	return (left % right);
 		        
 		    case "^":
 		        return (int) (Math.pow(left, right));
@@ -250,6 +253,7 @@ public class Project_2A {
 			case "^": return true;
 			case "*": return true;
 			case "/": return true;
+			case "%": return true;
 			case "+": return true;
 			case "-": return true;
 			case ">": return true;
@@ -263,12 +267,33 @@ public class Project_2A {
 			
 			}//end switch
 		}//end isOperator method
-		public static void main(String[] args) {
-			System.out.println(evaluatEquation(" 5^2%7 && (4-4)"));
-			System.out.println(evaluatEquation(" (2 >3) -2"));
-			System.out.println(evaluatEquation(" (3 + 4) || 0"));
+		
+		public static void main(String[] args) throws FileNotFoundException, IOException {
+			/*
+			 * File and buffer reader to read the data from Expressions.txt
+			 * Separates each expressions using the ';' char
+			 */
+			FileReader fr = new FileReader("Expressions.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String fileData="", l="";
+			while((l=br.readLine())!=null) { 
+			    fileData += l;
+			}
+			br.close();
+			 
+			/**
+			 * Creates an array to store Expressions.txt data
+			 * Splits data at ; 
+			 * ; Used in Expressions.txt to separate each expression string
+			 * Iterates through every element in expressions array and prints the expression
+			 * After expression is printed, calls evaluateEquation method to solve expression
+			 * Prints solved expression
+			 */
+			String[] expressions = fileData.split(";");
+			for(int i = 0; i < expressions.length; i++) {
+				System.out.print(expressions[i] + " solved is: " + evaluateEquation(expressions[i]) +"\n");
+			}//end for loop
 
 		}//end main
 		
 }//end class Project_2A 
-
