@@ -1,6 +1,5 @@
 # Project_2A
 
-DOEST NOT WORK 
 
 This is a work in progress project.
 Reads from the file and stores each expression as a string in an array of strings.
