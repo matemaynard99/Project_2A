@@ -4,11 +4,11 @@
 	//Samuel Maynard
 	//Shane Callaway
 
-	package Project_2A;
-	import java.util.*;
-	public class Project_2A {
-		static Stack<Integer> nums = new Stack<Integer>();
-		static Stack<String> operators = new Stack<String>();
+	
+import java.util.*;
+public class Project_2A {
+	static Stack<Integer> nums = new Stack<Integer>();
+	static Stack<String> operators = new Stack<String>();
 		
 		public static int evaluatEquation(String s) {
 			s = s + " ";
@@ -163,22 +163,18 @@
 			default: return 0;
 		    case "+":
 		        return(left + right);
-		     
-		    
+		     	    
 		    case "-":
 		        return(left - right);
-
-		        
+	        
 		    case "*":
 		        return(left * right);
-
+		        
 		    case "/":
 		        return(left / right);
-
 		        
 		    case "^":
 		        return (int) (Math.pow(left, right));
-
 		        
 		    case ">":
 		        if(left > right) {
@@ -187,8 +183,7 @@
 		        else {
 		            return 0;
 		        }
-		   
-		        
+		   		        
 		    case "<":
 		        if(left < right) {
 		            return 1;
@@ -196,8 +191,7 @@
 		        else {
 		            return 0;
 		        }
-		      
-		        
+		      		        
 		    case ">=":
 		        if(left >= right) {
 		            return 1;
@@ -205,8 +199,7 @@
 		        else {
 		            return 0;
 		        }
-		  
-		        
+		  		        
 		    case "<=":
 		        if(left <= right) {
 		            return 1;
@@ -214,8 +207,7 @@
 		        else {
 		            return 0;
 		        }
-		
-		        
+				        
 		    case "==":
 		        if(left == right) {
 		            return 1;
@@ -223,8 +215,7 @@
 		        else {
 		            return 0;
 		        }
-		        
-		        
+		        		        
 		    case "!=":
 		        if(left != right) {
 		            return 1;
@@ -232,21 +223,15 @@
 		        else {
 		            return 0;
 		        }
-		    
-		        
-			
-		        
+		    		        
 		    case "&&":
 		    	return (left & right);
-		        
-		    
-		    
+		        		    
 		    case "||":
 		    	return (left ^ right);
-		        
-		    
-			}
-		}
+		        		    
+			}//end switch
+		}//end static method
 		
 		//method to check if character  is a number
 		//simple method to see if char is between 1-9 and thus a number
@@ -276,16 +261,14 @@
 			case "||": return true;
 			default: return false;
 			
-			}
-		}
+			}//end switch
+		}//end isOperator method
 		public static void main(String[] args) {
 			System.out.println(evaluatEquation(" 5^2%7 && (4-4)"));
 			System.out.println(evaluatEquation(" (2 >3) -2"));
 			System.out.println(evaluatEquation(" (3 + 4) || 0"));
 
-		}
+		}//end main
 		
-	} 
-
-	
+}//end class Project_2A 
 
